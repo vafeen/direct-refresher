@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    `maven-publish`
 }
 
 android {
@@ -42,4 +43,17 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     api(libs.retrofit)
     api(libs.converter.gson)
+}
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "android.vafeen"
+            artifactId = "direct_refresher"
+            version = "1.0.0"
+
+            afterEvaluate {
+                from(components.getByName("release"))
+            }
+        }
+    }
 }
