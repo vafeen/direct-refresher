@@ -3,9 +3,10 @@ package android.vafeen.direct_refresher
 import android.content.Context
 
 /**
- * Эта функция формирует полный путь к файлу APK, который будет загружен в кэш приложения.
+ * Extension function to generate the full path to the APK file that will be downloaded to the app's cache.
  *
- * @return Путь к файлу APK для загрузки релиза. Возвращает строку, представляющую путь к файлу.
+ * @param fileName The name of the APK file.
+ * @return A string representing the full path to the file in the application's external cache directory.
  */
-internal fun Context.pathToDownloadRelease(): String =
-    "${externalCacheDir?.absolutePath}/app-release.apk"
+internal fun Context.pathToDownloadFile(fileName: String): String =
+    "${externalCacheDir?.absolutePath}/$fileName"

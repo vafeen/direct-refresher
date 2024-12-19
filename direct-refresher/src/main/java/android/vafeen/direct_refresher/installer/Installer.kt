@@ -1,12 +1,14 @@
 package android.vafeen.direct_refresher.installer
 
 /**
- * Интерфейс для установки APK-файлов.
+ * Interface for installing files from a given file path.
  */
 interface Installer {
 
     /**
-     * Устанавливает APK-файл.
+     * Installs a file from the given file path.
+     *
+     * @param filePath The path to the file to be installed.
      */
-    fun installApk()
+    fun installAPK(filePath: String)
 }
