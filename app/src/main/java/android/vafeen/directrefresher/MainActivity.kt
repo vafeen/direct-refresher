@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            val isUpdateInProgress by vModel.isUpdateInProcessFlow.collectAsState(initial = false)
+            val isUpdateInProgress by vModel.isUpdateInProcessFlow.collectAsState()
             val percentageFlow by vModel.percentageFlow.collectAsState(initial = 0f)
             MainTheme {
                 Scaffold(containerColor = Theme.colors.singleTheme,

@@ -1,27 +1,27 @@
 package android.vafeen.direct_refresher.refresher
 
+import android.vafeen.direct_refresher.downloader.DownloadStatus
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.SharedFlow
 
 /**
- * Интерфейс для загрузки файлов, например, APK.
+ * Interface for refreshing Android applications by downloading and installing APK files.
  */
 interface Refresher {
 
     /**
-     * Поток, представляющий процент завершения загрузки.
+     * A flow that broadcasts the progress of the download process.
+     * It emits updates on the status of the download, such as started, in-progress, success, or error.
      */
-    val percentageFlow: SharedFlow<Float>
+    val progressFlow: SharedFlow<DownloadStatus>
 
     /**
-     * Поток, указывающий, находится ли процесс обновления в процессе.
-     */
-    val isUpdateInProcessFlow: SharedFlow<Boolean>
-
-    /**
-     * Запускает загрузку APK-файла по указанному URL.
+     * Starts the download of an APK file from the provided URL and installs it once downloaded.
+     * This function downloads the file and tracks the progress of the download.
      *
-     * @param url URL файла APK, который нужно загрузить.
+     * @param coroutineScope The coroutine scope in which the download will be executed.
+     * @param url The URL of the APK file to be downloaded.
+     * @param downloadedFileName The name under which the downloaded APK file will be saved.
      */
-    fun refresh(coroutineScope: CoroutineScope, url: String)
+    suspend fun refresh(coroutineScope: CoroutineScope, url: String, downloadedFileName: String)
 }
