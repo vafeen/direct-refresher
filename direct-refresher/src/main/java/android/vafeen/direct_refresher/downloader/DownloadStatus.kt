@@ -2,8 +2,6 @@ package android.vafeen.direct_refresher.downloader
 
 /**
  * Sealed class for representing the status of a download operation.
- *
- * @param T The type of data returned in case of a successful request.
  */
 sealed class DownloadStatus {
 
