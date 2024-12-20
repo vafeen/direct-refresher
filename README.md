@@ -1,4 +1,4 @@
-# Direct-Refresher Android library
+# Direct-Refresher Android library [![](https://jitpack.io/v/vafeen/Direct-Refresher.svg)](https://jitpack.io/#vafeen/Direct-Refresher)
 
 ## Preview
 
@@ -54,7 +54,7 @@ Steps to implement this library in your project:
     }
     ```
 
-2. Add library last VERSION implementation to your `build.gradle.kts`, that you can see in [releases](https://github.com/vafeen/Direct-Refresher/releases)
+2. Add library version [![](https://jitpack.io/v/vafeen/Direct-Refresher.svg)](https://jitpack.io/#vafeen/Direct-Refresher) implementation to your `build.gradle.kts`
 
     ```kt
     implementation ("com.github.vafeen:Direct-Refresher:VERSION") 
