@@ -49,7 +49,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = "android.vafeen"
             artifactId = "direct_refresher"
-            version = "1.0.1"
+            version = "1.0.2"
 
             afterEvaluate {
                 from(components.getByName("release"))
