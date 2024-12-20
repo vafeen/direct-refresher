@@ -6,6 +6,7 @@ import android.vafeen.direct_refresher.downloader.DownloadStatus
 import android.vafeen.direct_refresher.installer.Installer
 import android.vafeen.direct_refresher.pathToDownloadFile
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharedFlow
 
 /**
@@ -25,7 +26,7 @@ internal class RefresherImpl(
      * Flow that emits the current status of the download process.
      * It reflects various stages of the download, such as start, progress, success, or error.
      */
-    override val progressFlow: SharedFlow<DownloadStatus> = downloader.progressFlow
+    override val progressFlow = downloader.progressFlow
 
     /**
      * Downloads the APK file from the provided URL and installs it once the download is complete.

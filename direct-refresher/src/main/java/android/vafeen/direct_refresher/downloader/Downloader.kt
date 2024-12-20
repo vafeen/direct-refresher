@@ -1,6 +1,7 @@
 package android.vafeen.direct_refresher.downloader
 
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharedFlow
 
 /**
@@ -12,7 +13,7 @@ interface Downloader {
      * A flow that emits the download progress status, including start, in-progress updates,
      * successful completion, or any errors encountered.
      */
-    val progressFlow: SharedFlow<DownloadStatus>
+    val progressFlow: Flow<DownloadStatus>
 
     /**
      * Downloads a file from the specified URL.
