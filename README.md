@@ -9,18 +9,18 @@ It downloads APK files from a provided link and initiates the installation reque
 
 I'll show how to use it with dependency injection using Koin.
 
-Firstly, define providing Downloader and Installer (and Refresher optional, if you don't want to split this process) wtih special following public functions:
+Firstly, define providing Downloader and Installer (and Refresher optional, if you don't want to split this process) with special following public functions in base DirectResresher object:
 
 ```kt
 internal val libModule = module {
     single<Downloader> {
-        provideDownloader(context = get(), baseURL = "Yout base URL")
+        DirectResresher.provideDownloader(context = get(), baseURL = "Your base URL")
     }
     single<Installer> {
-        provideInstaller(context = get())
+        DirectResresher.provideInstaller(context = get())
     }
     single<Refresher> {
-        provideRefresher(context = get(), downloader = get(), installer = get())
+        DirectResresher.provideRefresher(context = get(), downloader = get(), installer = get())
     }
 }
 ```
