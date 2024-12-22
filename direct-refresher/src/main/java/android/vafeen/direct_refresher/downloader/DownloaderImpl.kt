@@ -2,8 +2,8 @@ package android.vafeen.direct_refresher.downloader
 
 import android.content.Context
 import android.util.Log
+import android.vafeen.direct_refresher.DirectRefresher
 import android.vafeen.direct_refresher.pathToDownloadFile
-import android.vafeen.direct_refresher.provideDownloadService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -25,7 +25,7 @@ internal class DownloaderImpl(
     baseUrl: String,
 ) : Downloader {
 
-    private val downloadService: DownloadService = provideDownloadService(baseUrl)
+    private val downloadService: DownloadService = DirectRefresher.provideDownloadService(baseUrl)
 
     /**
      * A flow for tracking the status of the download process.
