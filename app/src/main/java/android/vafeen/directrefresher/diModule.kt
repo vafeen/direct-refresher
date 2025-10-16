@@ -11,7 +11,7 @@ import org.koin.dsl.module
 
 internal val libModule = module {
     single<Downloader> {
-        DirectRefresher.provideDownloader(context = get(), baseUrl = TestData.testBaseUrl)
+        DirectRefresher.provideDownloader(context = get(), baseUrl = TestData.testBaseUrl2, samplePeriodMillis = 500)
     }
     single<Installer> {
         DirectRefresher.provideInstaller(context = get())

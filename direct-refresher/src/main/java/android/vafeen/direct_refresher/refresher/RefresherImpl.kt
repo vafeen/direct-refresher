@@ -4,10 +4,7 @@ import android.content.Context
 import android.vafeen.direct_refresher.downloader.Downloader
 import android.vafeen.direct_refresher.downloader.DownloadStatus
 import android.vafeen.direct_refresher.installer.Installer
-import android.vafeen.direct_refresher.pathToDownloadFile
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.SharedFlow
 
 /**
  * Implementation of the Refresher interface for downloading and installing APK files.
@@ -26,24 +23,23 @@ internal class RefresherImpl(
      * Flow that emits the current status of the download process.
      * It reflects various stages of the download, such as start, progress, success, or error.
      */
-    override val progressFlow = downloader.progressFlow
+    override val progressFlow: Flow<DownloadStatus> = downloader.progressFlow
 
     /**
      * Downloads the APK file from the provided URL and installs it once the download is complete.
      *
-     * @param coroutineScope The scope in which the download will be launched.
      * @param url The URL from which the APK file will be downloaded.
-     * @param downloadedFileName The name under which the APK file will be saved on the device.
+     * @param fileName The name under which the APK file will be saved on the device.
      */
     override suspend fun refresh(
-        coroutineScope: CoroutineScope,
         url: String,
-        downloadedFileName: String
+        fileName: String
     ) {
         // Start the file download
-        downloader.downloadFile(coroutineScope, url, downloadedFileName) {
-            // Once the download is complete, install the APK
-            installer.installAPK(context.pathToDownloadFile(downloadedFileName))
+        val success = downloader.downloadFile(url, fileName)
+        // Once the download is complete, install the APK
+        if (success) {
+            installer.installAPK(fileName)
         }
     }
 }

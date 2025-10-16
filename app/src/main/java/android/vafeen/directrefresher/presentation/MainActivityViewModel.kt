@@ -22,30 +22,16 @@ internal class MainActivityViewModel(
     init {
         viewModelScope.launch {
             refresher.progressFlow.collect { status ->
-                when (status) {
-                    DownloadStatus.Started -> {
-                        _isUpdateInProcessFlow.emit(true)
-                    }
-
-                    is DownloadStatus.InProgress -> {
-                        _percentageFlow.emit(status.percentage)
-                    }
-
-                    DownloadStatus.Success -> {
-                        _isUpdateInProcessFlow.emit(false)
-                    }
-
-                    is DownloadStatus.Error -> {
-                        _isUpdateInProcessFlow.emit(false)
-                    }
-                }
+                _isUpdateInProcessFlow.emit(status is DownloadStatus.Started || status is DownloadStatus.InProgress)
+                if (status is DownloadStatus.InProgress) _percentageFlow.emit(status.percentage)
             }
         }
     }
 
     fun update() {
         viewModelScope.launch(Dispatchers.IO) {
-            refresher.refresh(viewModelScope, TestData.testUrl, TestData.testName)
+            _isUpdateInProcessFlow.emit(true)
+            refresher.refresh(TestData.testUrl, TestData.testName)
         }
     }
 

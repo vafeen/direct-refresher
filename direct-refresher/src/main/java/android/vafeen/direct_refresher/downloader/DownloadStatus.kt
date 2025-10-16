@@ -15,7 +15,7 @@ sealed class DownloadStatus {
      *
      * @property percentage The percentage of the file downloaded, expressed as a float between 0.0 and 1.0.
      */
-    class InProgress(val percentage: Float) : DownloadStatus()
+    data class InProgress(val percentage: Float) : DownloadStatus()
 
     /**
      * Indicates the successful completion of the download process.
@@ -27,5 +27,5 @@ sealed class DownloadStatus {
      *
      * @property exception The exception describing the error.
      */
-    class Error(val exception: Exception) : DownloadStatus()
+    data class Error(val exception: Exception) : DownloadStatus()
 }

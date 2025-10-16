@@ -14,15 +14,15 @@ import java.io.File
 internal class InstallerImpl(private val context: Context) : Installer {
 
     /**
-     * Installs a file from the given file path.
+     * Installs a file from the given file name.
      *
      * Retrieves the path to the file and initiates the installation process if the file exists.
      *
-     * @param filePath The path to the file to be installed.
+     * @param fileName The name of the file to be installed.
      */
-    override fun installAPK(filePath: String) {
+    override fun installAPK(fileName: String) {
         // Create a File object for the file at the given path
-        val file = File(filePath)
+        val file = File(context.filesDir, fileName)
 
         // Check if the file exists
         if (file.exists()) {
@@ -46,7 +46,7 @@ internal class InstallerImpl(private val context: Context) : Installer {
             context.startActivity(intent)
         } else {
             // Log an error if the file does not exist
-            Log.e("Installer", "File does not exist: $filePath")
+            Log.e("Installer", "File does not exist: $fileName")
         }
     }
 }

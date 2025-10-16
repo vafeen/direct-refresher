@@ -6,9 +6,9 @@ package android.vafeen.direct_refresher.installer
 interface Installer {
 
     /**
-     * Installs a file from the given file path.
+     * Installs a file from the given file name.
      *
-     * @param filePath The path to the file to be installed.
+     * @param fileName The name of the file to be installed.
      */
-    fun installAPK(filePath: String)
+    fun installAPK(fileName: String)
 }

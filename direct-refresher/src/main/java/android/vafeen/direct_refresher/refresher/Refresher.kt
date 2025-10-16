@@ -20,9 +20,8 @@ interface Refresher {
      * Starts the download of an APK file from the provided URL and installs it once downloaded.
      * This function downloads the file and tracks the progress of the download.
      *
-     * @param coroutineScope The coroutine scope in which the download will be executed.
      * @param url The URL of the APK file to be downloaded.
-     * @param downloadedFileName The name under which the downloaded APK file will be saved.
+     * @param fileName The name under which the downloaded APK file will be saved.
      */
-    suspend fun refresh(coroutineScope: CoroutineScope, url: String, downloadedFileName: String)
+    suspend fun refresh(url: String, fileName: String)
 }
