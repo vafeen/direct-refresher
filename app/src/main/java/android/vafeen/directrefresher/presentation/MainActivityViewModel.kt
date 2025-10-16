@@ -31,7 +31,7 @@ internal class MainActivityViewModel(
     fun update() {
         viewModelScope.launch(Dispatchers.IO) {
             _isUpdateInProcessFlow.emit(true)
-            refresher.refresh(TestData.testUrl, TestData.testName)
+            refresher.refresh(TestData.testUrl2, TestData.testName2)
         }
     }
 

@@ -8,4 +8,5 @@ internal object TestData {
     val testBaseUrl2 = "https://github.com/"
     val testUrl2 =
         "https://github.com/vafeen/UniversitySchedule/releases/download/v6.1.15/app-release.apk"
+    val testName2 = "app-release.apk"
 }
