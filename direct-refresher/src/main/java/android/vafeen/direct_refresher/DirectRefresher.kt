@@ -42,11 +42,10 @@ object DirectRefresher {
      * @param baseUrl The base URL for downloading files.
      * @return An instance of [Downloader].
      */
-    fun provideDownloader(context: Context, baseUrl: String, samplePeriodMillis: Long): Downloader =
+    fun provideDownloader(context: Context, baseUrl: String): Downloader =
         DownloaderImpl(
             context = context,
             baseUrl = baseUrl,
-            samplePeriodMillis = samplePeriodMillis
         )
 
     /**
@@ -67,9 +66,7 @@ object DirectRefresher {
      * @return An instance of [Refresher].
      */
     fun provideRefresher(
-        context: Context,
         downloader: Downloader,
         installer: Installer
-    ): Refresher =
-        RefresherImpl(context = context, downloader = downloader, installer = installer)
+    ): Refresher = RefresherImpl(downloader = downloader, installer = installer)
 }

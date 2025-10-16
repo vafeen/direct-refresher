@@ -14,6 +14,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
+/**
+ * A composable function that displays a banner indicating that an update is available.
+ *
+ * This component is a clickable row that triggers the provided [onClick] lambda when tapped.
+ * It is used to prompt the user to start the update process.
+ *
+ * @param onClick A lambda function to be executed when the user clicks the banner.
+ */
 @Composable
 internal fun UpdateAvailable(
     onClick: () -> Unit

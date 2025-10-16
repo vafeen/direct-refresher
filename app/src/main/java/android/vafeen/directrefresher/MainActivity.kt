@@ -21,28 +21,50 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+/**
+ * The main activity of the application, serving as the entry point for the user interface.
+ *
+ * This activity sets up the UI using Jetpack Compose and observes the state from the
+ * [MainActivityViewModel] to display either an update prompt or the update progress.
+ */
 class MainActivity : ComponentActivity() {
+
+    /**
+     * The ViewModel for this activity, injected by Koin.
+     */
     private val vModel: MainActivityViewModel by viewModel()
 
+    /**
+     * Called when the activity is first created.
+     *
+     * This method initializes the UI, sets up the Compose content, and observes the
+     * update status from the ViewModel.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             val isUpdateInProgress by vModel.isUpdateInProcessFlow.collectAsState()
             val percentageFlow by vModel.percentageFlow.collectAsState(initial = 0f)
+
             MainTheme {
-                Scaffold(containerColor = Theme.colors.singleTheme,
+                Scaffold(
+                    containerColor = Theme.colors.singleTheme,
                     bottomBar = {
                         BottomAppBar(containerColor = mainDarkColor) {}
-                    }) { innerPadding ->
+                    }
+                ) { innerPadding ->
                     Column(
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(innerPadding),
                         verticalArrangement = Arrangement.Bottom
                     ) {
-                        if (isUpdateInProgress) UpdateProgress(percentageFlow)
-                        else UpdateAvailable { vModel.update() }
+                        if (isUpdateInProgress) {
+                            UpdateProgress(percentageFlow)
+                        } else {
+                            UpdateAvailable { vModel.update() }
+                        }
                     }
                 }
             }

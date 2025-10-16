@@ -11,13 +11,13 @@ import org.koin.dsl.module
 
 internal val libModule = module {
     single<Downloader> {
-        DirectRefresher.provideDownloader(context = get(), baseUrl = TestData.testBaseUrl2, samplePeriodMillis = 500)
+        DirectRefresher.provideDownloader(context = get(), baseUrl = TestData.testBaseUrl2)
     }
     single<Installer> {
         DirectRefresher.provideInstaller(context = get())
     }
     single<Refresher> {
-        DirectRefresher.provideRefresher(context = get(), downloader = get(), installer = get())
+        DirectRefresher.provideRefresher(downloader = get(), installer = get())
     }
 }
 internal val diModule = module {

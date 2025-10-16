@@ -2,16 +2,13 @@ package android.vafeen.direct_refresher.downloader
 
 import android.content.Context
 import android.util.Log
-import android.util.Log.e
 import android.vafeen.direct_refresher.DirectRefresher
 import android.vafeen.direct_refresher.pathToDownloadFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.sample
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileOutputStream
@@ -27,7 +24,6 @@ import java.net.UnknownHostException
 internal class DownloaderImpl(
     private val context: Context,
     baseUrl: String,
-    samplePeriodMillis: Long,
 ) : Downloader {
 
     private val downloadService: DownloadService = DirectRefresher.provideDownloadService(baseUrl)
