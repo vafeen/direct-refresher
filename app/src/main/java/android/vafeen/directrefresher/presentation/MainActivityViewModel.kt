@@ -23,7 +23,7 @@ internal class MainActivityViewModel(
         viewModelScope.launch {
             refresher.progressFlow.collect { status ->
                 _isUpdateInProcessFlow.emit(status is DownloadStatus.Started || status is DownloadStatus.InProgress)
-                if (status is DownloadStatus.InProgress) _percentageFlow.emit(status.percentage)
+                if (status is DownloadStatus.InProgress) _percentageFlow.emit(status.percentage / 100f)
             }
         }
     }

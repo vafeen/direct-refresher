@@ -2,10 +2,12 @@ package android.vafeen.direct_refresher.downloader
 
 import android.content.Context
 import android.util.Log
+import android.util.Log.e
 import android.vafeen.direct_refresher.DirectRefresher
 import android.vafeen.direct_refresher.pathToDownloadFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.onEach
@@ -34,10 +36,11 @@ internal class DownloaderImpl(
      * A flow for tracking the status of the download process.
      */
     private val _progressFlow = MutableSharedFlow<DownloadStatus>()
+
     @OptIn(FlowPreview::class)
-    override val progressFlow = _progressFlow.asSharedFlow().sample(samplePeriodMillis).onEach {
-        Log.i("Downloader", "$it")
-    }
+    override val progressFlow = _progressFlow.asSharedFlow().onEach {
+            Log.i("Downloader", "$it")
+        }
 
     /**
      * Downloads a file from the specified URL and saves it to a predefined location.
@@ -54,7 +57,7 @@ internal class DownloaderImpl(
             context.pathToDownloadFile(downloadedFileName) // Get the path to save the file.
         try {
             _progressFlow.emit(DownloadStatus.Started) // Set the download status to Started.
-
+            var lastPercentage = 0
             // Make the download request.
             val call = downloadService.downloadFile(fileUrl)
             val response = call.execute() // Execute the request synchronously.
@@ -77,11 +80,16 @@ internal class DownloaderImpl(
                 while (inputStream.read(buffer).also { bytesRead = it } != -1) {
                     outputStream.write(buffer, 0, bytesRead)
                     totalBytesRead += bytesRead
-                    _progressFlow.emit(
-                        DownloadStatus.InProgress(
-                            percentage = (totalBytesRead.toFloat() / contentLength)
-                        )
-                    ) // Emit the download progress.
+                    val currentPercentage = (totalBytesRead * 100 / contentLength).toInt()
+
+                    if (currentPercentage != lastPercentage) {
+                        lastPercentage = currentPercentage
+                        _progressFlow.emit(
+                            DownloadStatus.InProgress(
+                                percentage = currentPercentage
+                            )
+                        ) // Emit the download progress.
+                    }
                 }
                 outputStream.close() // Close the output stream.
                 inputStream.close() // Close the input stream.

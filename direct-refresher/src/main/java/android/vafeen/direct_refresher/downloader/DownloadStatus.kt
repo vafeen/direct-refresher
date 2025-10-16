@@ -13,9 +13,9 @@ sealed class DownloadStatus {
     /**
      * Represents the progress of the download with the current percentage.
      *
-     * @property percentage The percentage of the file downloaded, expressed as a float between 0.0 and 1.0.
+     * @property percentage The percentage of the file downloaded, expressed as a Int between 1 and 100.
      */
-    data class InProgress(val percentage: Float) : DownloadStatus()
+    data class InProgress(val percentage: Int) : DownloadStatus()
 
     /**
      * Indicates the successful completion of the download process.
