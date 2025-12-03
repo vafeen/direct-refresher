@@ -1,6 +1,10 @@
 package android.vafeen.direct_refresher
 
 import android.content.Context
+import android.vafeen.direct_refresher.DirectRefresher.provideDownloadService
+import android.vafeen.direct_refresher.DirectRefresher.provideDownloader
+import android.vafeen.direct_refresher.DirectRefresher.provideInstaller
+import android.vafeen.direct_refresher.DirectRefresher.provideRefresher
 import android.vafeen.direct_refresher.downloader.DownloadService
 import android.vafeen.direct_refresher.downloader.Downloader
 import android.vafeen.direct_refresher.downloader.DownloaderImpl

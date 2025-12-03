@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "android.vafeen.direct_refresher"
+    namespace = "io.github.vafeen.direct_refresher"
     compileSdk = 35
 
     defaultConfig {

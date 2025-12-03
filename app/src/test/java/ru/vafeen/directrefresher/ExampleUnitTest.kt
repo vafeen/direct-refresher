@@ -1,8 +1,7 @@
-package android.vafeen.direct_refresher
+package android.vafeen.directrefresher
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).
