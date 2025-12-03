@@ -1,4 +1,4 @@
-package android.vafeen.directrefresher.app
+package ru.vafeen.directrefresher.app
 
 import android.app.Application
 import android.vafeen.directrefresher.diModule

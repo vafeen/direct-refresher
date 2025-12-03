@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    namespace = "android.vafeen.directrefresher"
-    compileSdk = 35
+    namespace = "ru.vafeen.directrefresher"
+    compileSdk = 36
 
     defaultConfig {
-        applicationId = "android.vafeen.directrefresher"
+        applicationId = "ru.vafeen.directrefresher"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
