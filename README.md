@@ -1,5 +1,4 @@
-# Direct-Refresher Android library [![](https://jitpack.io/v/vafeen/Direct-Refresher.svg)](https://jitpack.io/#vafeen/Direct-Refresher)
-
+# Direct-Refresher Android library [![GitHub Tag](https://img.shields.io/github/v/tag/vafeen/direct-refresher)](https://github.com/vafeen/direct-refresher/releases/latest/)
 ## Preview
 
 Direct-Refresher is an Android library for updating applications without using app markets.
@@ -37,25 +36,16 @@ To update your app, you have two options:
 - Call the `refresh` function from `Refresher`, providing the coroutineScope, the URL for downloading the file, and the name under which the downloaded APK file will be saved.
 - Call the `downloadFile` function from `Downloader` for subsequent installation, providing the same parameters. Optionally, you can provide a lambda that will be called after the download is successful. For example, in this lambda, you can initiate the installation process.
 
-## Gradle implementation
+## Implementation
 
-Steps to implement this library in your project:
+[![GitHub Tag](https://img.shields.io/github/v/tag/vafeen/direct-refresher)](https://github.com/vafeen/direct-refresher/releases/latest/)
 
-1. Add `https://jitpack.io` maven repository to your `settings.gradle.kts`
+Gradle:
 
-    ```kt
-    dependencyResolutionManagement {
-        repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-        repositories {
-            google()
-            mavenCentral()
-            maven(url = "https://jitpack.io") // add this line 
-        }
-    }
-    ```
+```kotlin
+implementation("io.github.vafeen:direct-refresher:VERSION")
+```
 
-2. Add library version [![](https://jitpack.io/v/vafeen/Direct-Refresher.svg)](https://jitpack.io/#vafeen/Direct-Refresher) implementation to your `build.gradle.kts`
+Other:
 
-    ```kt
-    implementation ("com.github.vafeen:Direct-Refresher:VERSION") 
-    ```
+https://central.sonatype.com/artifact/io.github.vafeen/direct-refresher
