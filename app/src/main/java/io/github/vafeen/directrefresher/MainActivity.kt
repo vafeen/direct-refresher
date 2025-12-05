@@ -1,0 +1,73 @@
+package io.github.vafeen.directrefresher
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import io.github.vafeen.directrefresher.presentation.MainActivityViewModel
+import io.github.vafeen.directrefresher.presentation.UpdateAvailable
+import io.github.vafeen.directrefresher.presentation.UpdateProgress
+import io.github.vafeen.directrefresher.ui.theme.MainTheme
+import io.github.vafeen.directrefresher.ui.theme.Theme
+import io.github.vafeen.directrefresher.ui.theme.mainDarkColor
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
+/**
+ * The main activity of the application, serving as the entry point for the user interface.
+ *
+ * This activity sets up the UI using Jetpack Compose and observes the state from the
+ * [MainActivityViewModel] to display either an update prompt or the update progress.
+ */
+class MainActivity : ComponentActivity() {
+
+    /**
+     * The ViewModel for this activity, injected by Koin.
+     */
+    private val vModel: MainActivityViewModel by viewModel()
+
+    /**
+     * Called when the activity is first created.
+     *
+     * This method initializes the UI, sets up the Compose content, and observes the
+     * update status from the ViewModel.
+     */
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            val isUpdateInProgress by vModel.isUpdateInProcessFlow.collectAsState()
+            val percentageFlow by vModel.percentageFlow.collectAsState(initial = 0f)
+
+            MainTheme {
+                Scaffold(
+                    containerColor = Theme.colors.singleTheme,
+                    bottomBar = {
+                        BottomAppBar(containerColor = mainDarkColor) {}
+                    }
+                ) { innerPadding ->
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(innerPadding),
+                        verticalArrangement = Arrangement.Bottom
+                    ) {
+                        if (isUpdateInProgress) {
+                            UpdateProgress(percentageFlow)
+                        } else {
+                            UpdateAvailable { vModel.update() }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
