@@ -19,7 +19,7 @@ internal val libModule = module {
         DirectResresher.provideInstaller(context = get())
     }
     single<Refresher> {
-        DirectResresher.provideRefresher(context = get(), downloader = get(), installer = get())
+        DirectResresher.provideRefresher(downloader = get(), installer = get())
     }
 }
 ```
