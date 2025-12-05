@@ -1,11 +1,11 @@
-package io.vafeen.directrefresher
+package io.github.vafeen.directrefresher
 
-import io.vafeen.direct_refresher.DirectRefresher
-import io.vafeen.direct_refresher.downloader.Downloader
-import io.vafeen.direct_refresher.installer.Installer
-import io.vafeen.direct_refresher.refresher.Refresher
-import io.vafeen.directrefresher.presentation.MainActivityViewModel
-import io.vafeen.directrefresher.presentation.TestData
+import io.github.vafeen.direct_refresher.DirectRefresher
+import io.github.vafeen.direct_refresher.downloader.Downloader
+import io.github.vafeen.direct_refresher.installer.Installer
+import io.github.vafeen.direct_refresher.refresher.Refresher
+import io.github.vafeen.directrefresher.presentation.MainActivityViewModel
+import io.github.vafeen.directrefresher.presentation.TestData
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 

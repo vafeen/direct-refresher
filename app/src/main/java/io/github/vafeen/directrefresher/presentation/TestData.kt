@@ -1,4 +1,4 @@
-package io.vafeen.directrefresher.presentation
+package io.github.vafeen.directrefresher.presentation
 
 internal object TestData {
     val testBaseUrl = "https://github.com/"

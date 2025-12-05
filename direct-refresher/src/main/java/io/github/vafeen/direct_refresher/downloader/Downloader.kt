@@ -1,4 +1,4 @@
-package io.vafeen.direct_refresher.downloader
+package io.github.vafeen.direct_refresher.downloader
 
 import kotlinx.coroutines.flow.Flow
 

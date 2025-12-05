@@ -1,4 +1,4 @@
-package io.vafeen.directrefresher.presentation
+package io.github.vafeen.directrefresher.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -11,8 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import io.vafeen.directrefresher.ui.theme.FontSize
-import io.vafeen.directrefresher.ui.theme.Theme
+import io.github.vafeen.directrefresher.ui.theme.FontSize
+import io.github.vafeen.directrefresher.ui.theme.Theme
 
 /**
  * A composable function that displays the progress of an update.

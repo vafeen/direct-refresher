@@ -1,4 +1,4 @@
-package io.vafeen.directrefresher
+package io.github.vafeen.directrefresher
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,12 +13,12 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import io.vafeen.directrefresher.presentation.MainActivityViewModel
-import io.vafeen.directrefresher.presentation.UpdateAvailable
-import io.vafeen.directrefresher.presentation.UpdateProgress
-import io.vafeen.directrefresher.ui.theme.MainTheme
-import io.vafeen.directrefresher.ui.theme.Theme
-import io.vafeen.directrefresher.ui.theme.mainDarkColor
+import io.github.vafeen.directrefresher.presentation.MainActivityViewModel
+import io.github.vafeen.directrefresher.presentation.UpdateAvailable
+import io.github.vafeen.directrefresher.presentation.UpdateProgress
+import io.github.vafeen.directrefresher.ui.theme.MainTheme
+import io.github.vafeen.directrefresher.ui.theme.Theme
+import io.github.vafeen.directrefresher.ui.theme.mainDarkColor
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**

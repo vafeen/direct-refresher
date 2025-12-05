@@ -1,4 +1,4 @@
-package io.vafeen.direct_refresher.installer
+package io.github.vafeen.direct_refresher.installer
 
 /**
  * Interface for installing files from a given file path.

@@ -1,4 +1,4 @@
-package io.vafeen.directrefresher.presentation
+package io.github.vafeen.directrefresher.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -11,8 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import io.vafeen.directrefresher.ui.theme.FontSize
-import io.vafeen.directrefresher.ui.theme.updateAvailableColor
+import io.github.vafeen.directrefresher.ui.theme.FontSize
+import io.github.vafeen.directrefresher.ui.theme.updateAvailableColor
 
 /**
  * A composable function that displays a banner indicating that an update is available.

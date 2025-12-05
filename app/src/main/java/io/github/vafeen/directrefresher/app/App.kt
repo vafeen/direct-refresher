@@ -1,7 +1,7 @@
-package io.vafeen.directrefresher.app
+package io.github.vafeen.directrefresher.app
 
 import android.app.Application
-import io.vafeen.directrefresher.diModule
+import io.github.vafeen.directrefresher.diModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 

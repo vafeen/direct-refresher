@@ -1,4 +1,4 @@
-package io.vafeen.direct_refresher.downloader
+package io.github.vafeen.direct_refresher.downloader
 
 import okhttp3.ResponseBody
 import retrofit2.Call

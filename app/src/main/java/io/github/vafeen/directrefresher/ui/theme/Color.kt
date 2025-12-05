@@ -1,4 +1,4 @@
-package io.vafeen.directrefresher.ui.theme
+package io.github.vafeen.directrefresher.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

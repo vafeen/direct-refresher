@@ -1,9 +1,9 @@
-package io.vafeen.directrefresher.presentation
+package io.github.vafeen.directrefresher.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import io.vafeen.direct_refresher.downloader.DownloadStatus
-import io.vafeen.direct_refresher.refresher.Refresher
+import io.github.vafeen.direct_refresher.downloader.DownloadStatus
+import io.github.vafeen.direct_refresher.refresher.Refresher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 /**
- * ViewModel for the [io.vafeen.directrefresher.MainActivity], responsible for managing the state of the UI
+ * ViewModel for the [io.github.vafeen.directrefresher.MainActivity], responsible for managing the state of the UI
  * and handling user interactions related to the app update process.
  *
  * @param refresher The [Refresher] instance used to download and install the update.

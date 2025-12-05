@@ -1,4 +1,4 @@
-package io.vafeen.direct_refresher
+package io.github.vafeen.direct_refresher
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -17,6 +17,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("io.vafeen.direct_refresher.test", appContext.packageName)
+        assertEquals("io.github.vafeen.direct_refresher.test", appContext.packageName)
     }
 }

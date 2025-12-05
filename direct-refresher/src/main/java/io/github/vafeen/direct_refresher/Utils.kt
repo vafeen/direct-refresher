@@ -1,4 +1,4 @@
-package io.vafeen.direct_refresher
+package io.github.vafeen.direct_refresher
 
 import android.content.Context
 

@@ -1,4 +1,4 @@
-package io.vafeen.direct_refresher
+package io.github.vafeen.direct_refresher
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

@@ -1,9 +1,9 @@
-package io.vafeen.direct_refresher.downloader
+package io.github.vafeen.direct_refresher.downloader
 
 import android.content.Context
 import android.util.Log
-import io.vafeen.direct_refresher.DirectRefresher
-import io.vafeen.direct_refresher.pathToDownloadFile
+import io.github.vafeen.direct_refresher.DirectRefresher
+import io.github.vafeen.direct_refresher.pathToDownloadFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableSharedFlow

@@ -1,6 +1,6 @@
-package io.vafeen.direct_refresher.refresher
+package io.github.vafeen.direct_refresher.refresher
 
-import io.vafeen.direct_refresher.downloader.DownloadStatus
+import io.github.vafeen.direct_refresher.downloader.DownloadStatus
 import kotlinx.coroutines.flow.Flow
 
 /**

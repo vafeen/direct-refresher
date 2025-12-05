@@ -1,17 +1,17 @@
-package io.vafeen.direct_refresher
+package io.github.vafeen.direct_refresher
 
 import android.content.Context
-import io.vafeen.direct_refresher.DirectRefresher.provideDownloadService
-import io.vafeen.direct_refresher.DirectRefresher.provideDownloader
-import io.vafeen.direct_refresher.DirectRefresher.provideInstaller
-import io.vafeen.direct_refresher.DirectRefresher.provideRefresher
-import io.vafeen.direct_refresher.downloader.DownloadService
-import io.vafeen.direct_refresher.downloader.Downloader
-import io.vafeen.direct_refresher.downloader.DownloaderImpl
-import io.vafeen.direct_refresher.installer.Installer
-import io.vafeen.direct_refresher.installer.InstallerImpl
-import io.vafeen.direct_refresher.refresher.Refresher
-import io.vafeen.direct_refresher.refresher.RefresherImpl
+import io.github.vafeen.direct_refresher.DirectRefresher.provideDownloadService
+import io.github.vafeen.direct_refresher.DirectRefresher.provideDownloader
+import io.github.vafeen.direct_refresher.DirectRefresher.provideInstaller
+import io.github.vafeen.direct_refresher.DirectRefresher.provideRefresher
+import io.github.vafeen.direct_refresher.downloader.DownloadService
+import io.github.vafeen.direct_refresher.downloader.Downloader
+import io.github.vafeen.direct_refresher.downloader.DownloaderImpl
+import io.github.vafeen.direct_refresher.installer.Installer
+import io.github.vafeen.direct_refresher.installer.InstallerImpl
+import io.github.vafeen.direct_refresher.refresher.Refresher
+import io.github.vafeen.direct_refresher.refresher.RefresherImpl
 import retrofit2.Retrofit
 
 /**
